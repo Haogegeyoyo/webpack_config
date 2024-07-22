@@ -14,7 +14,7 @@ const isBuild = 'loc' !== '' + process.env.ENV
 module.exports = {
 
   // 入口
-  entry: './index.js', // 相对路径
+  entry: './index.jsx', // 相对路径
 
   // 输出
   output: {
@@ -44,10 +44,19 @@ module.exports = {
               }
             }, {
               loader: 'babel-loader',
+              // babel 转义的配置选项
               options: {
+                babelrc: false,
+                presets: [ // 预设
+                  // 添加 preset-react
+                  require.resolve('@babel/preset-react'),
+                  [require.resolve('@babel/preset-env'), {modules: false}]
+                ],
                 cacheDirectory: true, // 开启 babel 缓存  ，缓存的文件会放在 node_modules/.cache/babel-loader 下
                 cacheCompression: false,// 关闭缓存文件压缩 ，该文件只是缓存文件，不需要去压缩，直接打包的文件才需要压缩
-                plugins: ['@babel/plugin-transform-runtime'] //减少代码体积
+                plugins: [
+                  // ["import", { libraryName: "antd-mobile", style: true }], // antd 按需加载， `style: true` 会加载 less 文件
+                  '@babel/plugin-transform-runtime'] //减少代码体积
               }
             }],
           },
@@ -205,5 +214,19 @@ module.exports = {
   },
   //模式
   mode: isBuild ? 'production' : 'development',
-  devtool: isBuild ? 'source-map' : 'cheap-module-source-map'
+  devtool: isBuild ? 'source-map' : 'cheap-module-source-map',
+
+  // 配置快捷路径
+  resolve: {
+  extensions: ['.web.js', '.js', '.jsx', '.json', '.css', '.less'],
+  modules: ['node_modules', path.join(__dirname, 'src')],
+  alias: {
+    'widget': path.join(__dirname, 'src/widget'),
+    'utils': path.join(__dirname, 'src/utils'),
+    'config': path.join(__dirname, 'src/config'),
+    'assets': path.join(__dirname, 'src/assets'),
+    "@":path.join(__dirname, 'src')
+    }
+  },
+  
 }

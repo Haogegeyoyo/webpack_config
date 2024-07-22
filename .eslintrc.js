@@ -1,6 +1,8 @@
 module.exports={
   // 解析选项
-  parserOptions: {},
+  parserOptions: {
+
+  },
   
   //具体检查规则
   rules :{},
@@ -10,5 +12,8 @@ module.exports={
   env :{
     es6 : true,
   },
-  parserOptions:{ sourceType : "module"}
+  parserOptions:{ sourceType : "module"},
+  
+  // parser解构器
+  parser : "@babel/eslint-parser"
 }
