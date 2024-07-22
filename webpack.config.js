@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const ESLintPlugin = require('eslint-webpack-plugin');
-const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
+// const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 const { extendDefaultPlugins } = require("svgo");
 
 
@@ -197,8 +197,8 @@ module.exports = {
   },
   // 开发服务器 ， 不会输出资源，在内在中编译打包
   devServer: {
-    // open: true, // 启动时，自动打开浏览器并打开页面
-    port: 9001,
+    open: true, // 启动时，自动打开浏览器并打开页面
+    port: 3000,
     host: '0.0.0.0',
     // proxy: { // 服务器代理
     // },
