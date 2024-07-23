@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "baseUrl": "./",
+    "paths": {
+      /**
+       * webpack.config.js中配置了一些路径别名,
+       * jsconfig.json 中这些配置是为了在使用这些路径时VScode的路径提示插件能正常使用
+       * 注意名称后面要携带 /* 这样才能找到目录下的所有目录和文件
+       */
+      "@/*": ["src/*"],
+      "@assets/*": ["src/assets/*"],
+      "@store/*": ["src/store/*"],
+      "@utils/*": ["src/utils/*"],
+      "@config/*": ["src/config/Config/*"],
+      "@Layout/*": ["src/widget/Layout/*"],
+      "@Common/*": ["src/widget/Common/*"],
+      "@Composite/*": ["src/widget/Composite/*"],
+      "@react-activation/*": ["src/widget/Composite/Activation/*"],
+      "@services": ["src/common/services.js"],
+    }
+  },
+  "exclude": ["node_modules", "dist"]
+}
