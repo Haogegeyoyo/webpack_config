@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
 import proptype from './proptype'
 import { updateStore } from './actions';
+
 /**
  *  connectRedux 方法 ，返回一个 由 connect 方法处理好的 容易组件
  *  connectRedux({stateskeys})(component) 或是做为一个装饰器使用

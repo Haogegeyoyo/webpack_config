@@ -1,8 +1,8 @@
 import React, { useState, useCallback } from "react";
 import "./index.less";
-function FunComponent() {
+
+function FunComponent(props) {
   const [num, setNum] = useState(0);
-  console.log(66666);
   const change = useCallback(() => {
     setNum(num + 1);
   }, [num]);
