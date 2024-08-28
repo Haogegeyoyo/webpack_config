@@ -12,17 +12,19 @@ project-root
 │   │       └── xxx.svg
 │   │   └── css
 │   │       └── global.css
-│   ├── bizComponents  // 业务组件
-│   │   └── xxx // 
-│   ├── components // 公共组件
-│   │   └── Button // 组件的主要封装思路：状态 hooks 与视图 view  , 对接外层数据时，统一在 index 进行处理，保证 view 与 hooks 纯净
-│   │       ├── view.js   // ui 容器 
-│   │       ├── hooks.js  // 使用自定义 hooks ，进行状态管理，处理逻辑等
-│   │       ├── style.css // 样式文件
-│   │       └── index.js  // 外层数据处理，统一数据格式
+│   ├── widget  // 业务组件
+│   |   ├── Business  // 业务组件
+│   │   |   └── xxx // 
+│   |   ├── Common // 公共组件 
+|   │   │   └── Button // 组件的主要封装思路：状态 hooks 与视图 view  , 对接外层数据时，统一在 index 进行处理，保证 view 与 hooks 纯净
+|   │   │       ├── view.js   // ui 容器 
+|   │   │       ├── hooks.js  // 使用自定义 hooks ，进行组件状态管理，处理逻辑等
+|   │   │       ├── style.css // 样式文件
+|   │   │       └── index.js  // 外层数据处理，统一数据格式
+|   │   └── index.js  // widget export 文件
 │   ├── hooks // 公共自定义hooks 
-│   │     ├── useMapStore.js // 通过 hooks 映射 store 
-│   │     └── useXXX.js
+│   │   ├── useMapStore.js // 通过 hooks 映射 store 
+│   │   └── useXXX.js
 |   ├── pages
 │   │   └── HomePage
 │   │       ├── view.js
@@ -54,4 +56,4 @@ project-root
 
 
 ## 组件封装思路
-从最简单的 ，iconfont , button 等组件开始封装，主要思想是，组件的状态 hoos 与 视图 view 尽量分离，并且外层的数据高阶组件的处理， view 和 hooks 保持纯净。
+从最简单的 ，iconfont , button 等组件开始封装，主要思想是，组件的状态 hoos 与 视图 view 尽量分离，并且外层的数据由index 进行处理， view 和 hooks 保持纯净。
